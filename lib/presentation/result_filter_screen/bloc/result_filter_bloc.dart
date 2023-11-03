@@ -1,0 +1,7 @@
+import '../models/filter_item_model.dart';import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/filter_item_model.dart';import '../models/listshape3_item_model.dart';import 'package:basri_s_application27/presentation/result_filter_screen/models/result_filter_model.dart';part 'result_filter_event.dart';part 'result_filter_state.dart';class ResultFilterBloc extends Bloc<ResultFilterEvent, ResultFilterState> {ResultFilterBloc(ResultFilterState initialState) : super(initialState) { on<ResultFilterInitialEvent>(_onInitialize); on<UpdateChipViewEvent>(_updateChipView); }
+
+_updateChipView(UpdateChipViewEvent event, Emitter<ResultFilterState> emit, ) { List<FilterItemModel> newList = List<FilterItemModel>.from(state.resultFilterModelObj!.filterItemList); newList[event.index] = newList[event.index].copyWith(isSelected: event.isSelected); emit(state.copyWith(resultFilterModelObj: state.resultFilterModelObj?.copyWith(filterItemList: newList))); } 
+List<FilterItemModel> fillFilterItemList() { return List.generate(3, (index) => FilterItemModel()); } 
+List<Listshape3ItemModel> fillListshape3ItemList() { return List.generate(3, (index) => Listshape3ItemModel()); } 
+_onInitialize(ResultFilterInitialEvent event, Emitter<ResultFilterState> emit, ) async  { emit(state.copyWith(formSearchController: TextEditingController())); emit(state.copyWith(resultFilterModelObj: state.resultFilterModelObj?.copyWith(filterItemList: fillFilterItemList(), listshape3ItemList: fillListshape3ItemList()))); } 
+ }

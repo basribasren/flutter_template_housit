@@ -1,0 +1,4 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application27/presentation/top_agents_profile_detail_tab_container_screen/models/top_agents_profile_detail_tab_container_model.dart';part 'top_agents_profile_detail_tab_container_event.dart';part 'top_agents_profile_detail_tab_container_state.dart';class TopAgentsProfileDetailTabContainerBloc extends Bloc<TopAgentsProfileDetailTabContainerEvent, TopAgentsProfileDetailTabContainerState> {TopAgentsProfileDetailTabContainerBloc(TopAgentsProfileDetailTabContainerState initialState) : super(initialState) { on<TopAgentsProfileDetailTabContainerInitialEvent>(_onInitialize); }
+
+_onInitialize(TopAgentsProfileDetailTabContainerInitialEvent event, Emitter<TopAgentsProfileDetailTabContainerState> emit, ) async  {  } 
+ }

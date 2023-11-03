@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/datalist_item_model.dart';import '../models/gridshape1_item_model.dart';import 'package:basri_s_application27/presentation/real_estates_list_by_category_screen/models/real_estates_list_by_category_model.dart';part 'real_estates_list_by_category_event.dart';part 'real_estates_list_by_category_state.dart';class RealEstatesListByCategoryBloc extends Bloc<RealEstatesListByCategoryEvent, RealEstatesListByCategoryState> {RealEstatesListByCategoryBloc(RealEstatesListByCategoryState initialState) : super(initialState) { on<RealEstatesListByCategoryInitialEvent>(_onInitialize); }
+
+List<DatalistItemModel> fillDatalistItemList() { return List.generate(3, (index) => DatalistItemModel()); } 
+List<Gridshape1ItemModel> fillGridshape1ItemList() { return List.generate(4, (index) => Gridshape1ItemModel()); } 
+_onInitialize(RealEstatesListByCategoryInitialEvent event, Emitter<RealEstatesListByCategoryState> emit, ) async  { emit(state.copyWith(formsearchemptyController: TextEditingController())); emit(state.copyWith(realEstatesListByCategoryModelObj: state.realEstatesListByCategoryModelObj?.copyWith(datalistItemList: fillDatalistItemList(), gridshape1ItemList: fillGridshape1ItemList()))); } 
+ }
