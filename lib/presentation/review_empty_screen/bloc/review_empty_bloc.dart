@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/cardlist_item_model.dart';import 'package:basri_s_application27/presentation/review_empty_screen/models/review_empty_model.dart';part 'review_empty_event.dart';part 'review_empty_state.dart';class ReviewEmptyBloc extends Bloc<ReviewEmptyEvent, ReviewEmptyState> {ReviewEmptyBloc(ReviewEmptyState initialState) : super(initialState) { on<ReviewEmptyInitialEvent>(_onInitialize); }
+
+List<CardlistItemModel> fillCardlistItemList() { return List.generate(3, (index) => CardlistItemModel()); } 
+_onInitialize(ReviewEmptyInitialEvent event, Emitter<ReviewEmptyState> emit, ) async  { emit(state.copyWith(formdateemptyController: TextEditingController(), formdateemptyOneController: TextEditingController(), formTextEmptyController: TextEditingController())); emit(state.copyWith(reviewEmptyModelObj: state.reviewEmptyModelObj?.copyWith(cardlistItemList: fillCardlistItemList()))); } 
+ }

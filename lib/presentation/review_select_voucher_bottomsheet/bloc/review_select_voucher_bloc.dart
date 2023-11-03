@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/listticket_item_model.dart';import 'package:basri_s_application27/presentation/review_select_voucher_bottomsheet/models/review_select_voucher_model.dart';part 'review_select_voucher_event.dart';part 'review_select_voucher_state.dart';class ReviewSelectVoucherBloc extends Bloc<ReviewSelectVoucherEvent, ReviewSelectVoucherState> {ReviewSelectVoucherBloc(ReviewSelectVoucherState initialState) : super(initialState) { on<ReviewSelectVoucherInitialEvent>(_onInitialize); }
+
+List<ListticketItemModel> fillListticketItemList() { return List.generate(2, (index) => ListticketItemModel()); } 
+_onInitialize(ReviewSelectVoucherInitialEvent event, Emitter<ReviewSelectVoucherState> emit, ) async  { emit(state.copyWith(languageController: TextEditingController())); emit(state.copyWith(reviewSelectVoucherModelObj: state.reviewSelectVoucherModelObj?.copyWith(listticketItemList: fillListticketItemList()))); } 
+ }
